@@ -4,12 +4,13 @@ import java.io.BufferedOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -41,8 +42,12 @@ public class AdminController {
 	}
 
 	@RequestMapping(value = "/insert", method = RequestMethod.POST)
-	public String insertProduct(@ModelAttribute("productId") Product product,HttpServletRequest request) {
-
+	public String insertProduct(@Valid @ModelAttribute("productId") Product product,HttpServletRequest request,BindingResult results, Model model) {
+		if (results.hasErrors()) {
+			model.addAttribute("product", product);
+			model.addAttribute("productData", productDao.getAllProduct());
+		return ("adminview/AdminPage");
+		}
 		if (product.getProductId() == 0) {
 			productDao.insertProduct(product);
 			

@@ -10,12 +10,10 @@
         http://www.springframework.org/schema/context/spring-context-3.2.xsd">
 
 
-	<bean id="HandlerMapping"
-		class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping" />
 
 	<!--it's say that scan all controller and use it -->
-	
-	<context:component-scan base-package="com.homeshop"/>
+
+	<context:component-scan base-package="com.homeshop" />
 
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -27,16 +25,16 @@
 		</property>
 	</bean>
 
-<!-- Multipart file size -->
-<bean id="multipartResolver"
+	<!-- Multipart file size -->
+	<bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 
-		 <!-- setting maximum upload size -->
+		<!-- setting maximum upload size -->
 		<property name="maxUploadSize" value="800000" />
 
 	</bean>
-	
-<mvc:resources mapping="/resources/**" location="/resources/" />
+
+	<mvc:resources mapping="/resources/**" location="/resources/" />
 	<!-- this tag is help to execute annotations -->
 	<mvc:annotation-driven />
 

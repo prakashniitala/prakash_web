@@ -62,4 +62,10 @@ public class ProductDAOImpl implements ProductDAO{
 		return null;
 	}
 
+	@Override
+	public Product getProductByBand(int productPrice) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

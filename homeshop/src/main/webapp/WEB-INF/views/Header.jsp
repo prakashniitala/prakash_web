@@ -1,4 +1,5 @@
 
+<c:set var="cp" value="${pageContext.request.contextPath}" />
 <jsp:include page="Linking.jsp" />
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -9,7 +10,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">WebSiteName</a>
+      <a class="navbar-brand" href="#">HOME SHOPING</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
@@ -47,11 +48,11 @@
             <li><a href="#">Game</a></li>
           </ul>
         </li>
-        <li><a href="<c:value="/about"/>">ABOUT</a></li>
+        <li><a href="<c:url value="/about"/>" >ABOUT</a></li>
         <li><a href="#">CONTACTS</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-user"></span>Admin</a></li>
+        <li><a href="<c:url value="/admin/all"/>"><span class="glyphicon glyphicon-user"></span>Admin</a></li>
         <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
         <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
       </ul>

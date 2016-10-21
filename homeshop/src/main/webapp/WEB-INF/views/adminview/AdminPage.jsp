@@ -1,19 +1,23 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <c:set var="cp" value="${pageContext.request.contextPath}" />
 
 
 <jsp:include page="../Header.jsp" />
-
+<br>
+<br>
+<br>
 
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-sm-2"></div>
 		<div class="col-sm-8">
 		<article role="login">
-			<form:form method="POST" action="${cp}/admin/insert"
+			<form:form method="POST" action="${cp}/admin/insert" class="form-horizontal"
 				modelAttribute="product" enctype="multipart/form-data">
+				
 	
 
 					<c:if test="${!empty product}">
@@ -21,9 +25,9 @@
 							<td><form:label path="productId">
 									<spring:message text="Product Id" />
 								</form:label></td>
-							<td><form:input path="productId" readonly="true"
-									disabled="true" /> <form:hidden path="productId" /> <span
-								class="glyphicon glyphicon-lock "></span></td>
+							<td><form:input path="productId" readonly="true" class="form-control"
+									disabled="true" /> <form:hidden path="productId" /> <!-- <span
+								class="glyphicon glyphicon-lock "></span> --></td>
 						</tr>
 					</c:if>
 
@@ -32,15 +36,19 @@
      <div class="form-group">
 						<%-- <td><form:label path="productName">Product Name</form:label></td> --%>
 						<form:input path="productName" class="form-control" placeholder="Product Name" required="required"/>
+						<span><form:errors path="productName" cssclass="error"/></span>
 </div>
-<div class="form-group">			
+<div class="form-group" >			
 						<%-- <td><form:label path="productBrand">Product Brand</form:label></td> --%>
 						<form:input path="productBrand" class="form-control" placeholder="Product Brand" required="required"/>
+						<Span>
+						<form:errors path="productBrand" cssclass="error"/></Span>
 </div>
 					
 					<%-- 	<td><form:label path="productCategory">Product Category</form:label></td> --%>
 					<div class="form-group">
 						<form:input path="productQuantity" class="form-control" placeholder="Product Quantity" required="required"/>
+			<span>		<form:errors path="productQuantity" cssclass="error"/></span>
 					</div>
 					
 					<div class="form-group">			
@@ -58,7 +66,7 @@
 </div>
 					
 					<input type="submit"
-									class="btn btn-success btn-block"  value="save" />
+									class="btn btn-primary btn-block"  value="save" />
 					<%-- 	 <c:if test="${!empty prdouct.productName}">
 								<input type="submit"
 									class="btn btn-success btn-block"  value="Update" />
