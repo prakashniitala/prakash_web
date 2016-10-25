@@ -17,7 +17,7 @@ http://www.springframework.org/schema/tx/spring-tx.xsd">
 		<property name="driverClassName" value="org.h2.Driver" />
 		<property name="url" value="jdbc:h2:tcp://localhost/~/homeshop" />
 		<property name="username" value="sa" />
-		<property name="password" value="" />
+		<property name="password" value="1234" />
 	</bean>
 
 	<!-- ref is used to refer to a bean by its id -->
@@ -28,7 +28,7 @@ http://www.springframework.org/schema/tx/spring-tx.xsd">
 		<property name="packagesToScan" value="com.homeshop.model" />
 		<property name="hibernateProperties">
 			<props>
-				<prop key="hibernate.dialect">org.hibernate.dialect.H2Dialect</prop>
+				<prop key="hibernate.dialect">org.hibernat.dialect.H2Dialect</prop>
 				<prop key="hibernate.show_sql">true</prop>
 				<prop key="hibernate.format_sql">true</prop>
 				<prop key="hibernate.hbm2ddl.auto">update</prop>
