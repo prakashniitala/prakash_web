@@ -1,7 +1,8 @@
 
-<c:set var="cp" value="${pageContext.request.contextPath}" />
-<jsp:include page="Linking.jsp" />
+<%@taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 
+<%@include file="Linking.jsp" %>
+<c:set var="cp" value="${pageContext.request.contextPath}" />
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -10,53 +11,95 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">HOME SHOPING</a>
+       <a class="navbar-brand" href="#">HOME SHOPING</a>
+       <!--  <img src="resources/image/download.png" class="navbar-brand" href="#" height="920" width="150"/> --> 
+       
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">HOME</a></li>
+        <li class="active"><a href="<c:url value="/" />">HOME</a></li>
+       <!--  <li class="active"><a href="checkout">ADD</a></li>
+ -->          <li><a href="<c:url value="/Viewall"/>"> ALL PRODUCT</a></li>
+                                <li><a href="<c:url value="/customer/cart/1" />">Cart</a></li>
+               
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Electronics Accessories<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">TV</a></li>
-            <li><a href="#">Moblie</a></li>
-            <li><a href="#">Computer Accessories</a></li>
-             <li><a href="#">Headphones & Headsets</a></li>
+            <li><a href="<c:url value="/displaycatgory/TV"/>">TV</a></li>
+            <li><a href="<c:url value="/displaycatgory/Moblie"/>">Moblie</a></li>
+            <li><a href="<c:url value="/displaycatgory/Computer"/>">Computer Accessories</a></li>
+             <li><a href="<c:url value="/displaycatgory/>Headphones"/>">Headphones & Headsets</a></li>
           </ul>
         </li>
          <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Clothes<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Men</a></li>
-            <li><a href="#">Women</a></li>
-            <li><a href="#">Baby & Kid</a></li>
+            <li><a href="<c:url value="/displaycatgory/Men"/>">Men</a></li>
+            <li><a href="<c:url value="/displaycatgory/Women"/>">Women</a></li>
+            <li><a href="<c:url value="/displaycatgory/Baby"/>">Baby & Kid</a></li>
           </ul>
         </li>
-         <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Home & Furniture<span class="caret"></span></a>
+       <%--   <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Home & Furniture<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Kitchen</a></li>
-            <li><a href="#">Tools & Hardware</a></li>
-            <li><a href="#">Home Furnishing</a></li>
+          	  <li><a href="<c:url value="/displaycatgory/Kitchen"/>">Kitchen</a></li>
+            <li><a href="<c:url value="/displaycatgory/Tools"/>">Tools & Hardware</a></li>
+            <li><a href="<c:url value="/displaycatgory/furnishing"/>">Home Furnishing</a></li>
           </ul>
         </li>
          <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Book & Others<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Books</a></li>
-            <li><a href="#">Stationery</a></li>
-            <li><a href="#">Game</a></li>
+            <li><a href="<c:url value="/displaycatgory/Books"/>">Books</a></li>
+            <li><a href="<c:url value="/displaycatgory/Stationery"/>">Stationery</a></li>
+            <li><a href="<c:url value="/displaycatgory/Game"/>">Game</a></li>
           </ul>
-        </li>
+        </li> --%>
         <li><a href="<c:url value="/about"/>" >ABOUT</a></li>
-        <li><a href="#">CONTACTS</a></li>
+        <li><a href="Contacts">CONTACTS</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="<c:url value="/admin/all"/>"><span class="glyphicon glyphicon-user"></span>Admin</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-      </ul>
+         
+   <sec:authorize access="hasRole('ROLE_ADMIN')" var="isAdmin">
+  <li><a href="<c:url value="/admin/all"/>"><span class="glyphicon glyphicon-user"></span>Admin</a></li> 
+   </sec:authorize>
+   <sec:authorize access="hasRole('ROLE_USER')" var="isUser">
+  
+   </sec:authorize>
+  
+  <c:if test="${(isAdmin)  || (isUser)}">
+ <%--  <li><a href="<c:url value="/admin/all"/>"><span class="glyphicon glyphicon-user"></span>Admin</a></li> --%>
+   <li><a href="<c:url value="/logout"/>">LogOut</a></li>
+  </c:if> 
+  
+ 
+  <c:choose>
+    <c:when test="${(isAdmin)  || (isUser)}">
+ 
+    </c:when>    
+    <c:otherwise>
+
+                    <li>
+                      <a href="<c:url value="/signup"/>">SIGNUP</a>
+                    </li>
+                 
+                    <li>
+                      <a href="<c:url value="/login"/>">Sign In</a>
+
+                    </li>
+                  </ul>
+                </li>
+               
+ 
+   </c:otherwise>
+</c:choose>
+                
+    </ul>
+    
+    
+    
+   
     </div>
+    
   </div>
 </nav>
-  

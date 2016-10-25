@@ -16,17 +16,30 @@
    <link rel="stylesheet" type="text/css" href="resource/css/bootstrap.css">
 </head>
 <body>
-<jsp:include page="Header.jsp"></jsp:include>
+<%@include file="Header.jsp" %>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 <div class="container">
     <div class="row">
-        <div class="col-sm-6 col-md-4 col-md-offset-4">
-            <h1 class="text-center login-title">Sign in to continue to Bootsnipp</h1>
+    <div class="col-sm-3">
+    
+    <video src="resources/image/v.mp4" autoplay="autoplay" controls="controls"/>
+    </div>
+         <div class="col-sm-6 col-md-4 col-md-offset-4">
+            <h1 class="text-center login-title">Sign in to continue to Shopings</h1>
             <div class="account-wall">
-                <img class="profile-img" src="resource/image/user.jpg"
+            
+                <img class="profile-img" src="resources/image/user.jpg"
                     alt="">
-                <form class="form-signin">
-                <input type="text" class="form-control" placeholder="Email" required autofocus>
-                <input type="password" class="form-control" placeholder="Password" required>
+                <form class="form-signin" action="login" method='POST'>
+                <input type="text" class="form-control" placeholder="Email" name="email" required autofocus>
+                <input type="password" class="form-control" placeholder="Password" name="password"    required>
                 <button class="btn btn-lg btn-primary btn-block" type="submit">
                     Sign in</button>
                 <label class="checkbox pull-left">
@@ -36,11 +49,24 @@
                 <a href="#" class="pull-right need-help">Need help? </a><span class="clearfix"></span>
                 </form>
             </div>
-            <a href="<c:url value="/Signup"/>" class="text-center new-account">Create an account </a>
+            <a href="<c:url value="/signup"/>" class="text-center new-account">Create an account </a>
            
         </div>
     </div>
-</div>
-<%-- <jsp:include page="foot.jsp"></jsp:include> --%>
+</div> <%-- 
+<div class="wrapper">
+		<form class="form-signin" action="login" method='POST'>
+			 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+			<h2 class="form-signin-heading">Please login</h2>
+			<input type="text" class="form-control" name="email"
+				placeholder="User Name" required="Please enter username"
+				autofocus="" /> <input type="password" class="form-control"
+				name="password" placeholder="Password"
+				required="Please enter password" />
+		
+			<button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+		</form>
+	</div> --%>
+ <jsp:include page="foot.jsp"></jsp:include>\
 </body>
 </html>

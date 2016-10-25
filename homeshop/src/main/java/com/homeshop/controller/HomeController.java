@@ -1,10 +1,10 @@
-
 package com.homeshop.controller;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
@@ -53,6 +53,32 @@ public ModelAndView Viewall(){
 public ModelAndView Loginpage(){
 	ModelAndView model=new ModelAndView("Login");
 	return model;
-}	
+}
+	@RequestMapping("/displaycatgory/{catgory}")
+	public ModelAndView Productcategory(@PathVariable("catgory") String cate) {
+		ModelAndView modelAndView = new ModelAndView("displaycatgory");
+		List<Product> products = productDAO.getProductByCategory(cate);
+	
+		modelAndView.addObject("productData", products);
+		return modelAndView;
+	}
+	@RequestMapping("/singledata/{id}")
+	public ModelAndView singledata(@PathVariable("id")int id) {
+		ModelAndView modelAndView = new ModelAndView("singledata");
+	
+
+		modelAndView.addObject("product", productDAO.getProductById(id));
+		
+		return modelAndView;
+	}
+	@RequestMapping(value={"/Viewall/{procat}"})
+	public ModelAndView productde(@PathVariable("procat") String st)
+	{
+	ModelAndView view = new ModelAndView();
+		view.setViewName("Viewall");
+		view.addObject("hj",st);
+		return view;
+	}
+
 	
 }

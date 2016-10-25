@@ -1,3 +1,4 @@
+
 package com.homeshop.model;
 
 import javax.persistence.Entity;
@@ -22,8 +23,8 @@ public class Product {
 	private int productQuantity;
 	@NotEmpty(message = "Please enter the brand name")
 	private String productBrand;
-
-	private int productPrice;
+   private String productCategory;
+	private double productPrice;
 
 	@javax.persistence.Transient
 	MultipartFile file;
@@ -68,18 +69,30 @@ public class Product {
 		this.productBrand = productBrand;
 	}
 
-	public int getproductPrice() {
+	public String getProductCategory() {
+		return productCategory;
+	}
+
+	public void setProductCategory(String productCategory) {
+		this.productCategory = productCategory;
+	}
+
+	public double getProductPrice() {
 		return productPrice;
 	}
 
-	public void setPrice(int productPrice) {
+	public void setProductPrice(double productPrice) {
 		this.productPrice = productPrice;
 	}
 
 	@Override
 	public String toString() {
-		return "Product [productId=" + productId + ", productName=" + productName + ", productBrand=" + productBrand
-				+ ", price=" + productPrice + "]";
+		return "Product [productId=" + productId + ", productName=" + productName + ", productQuantity="
+				+ productQuantity + ", productBrand=" + productBrand + ", productCategory=" + productCategory
+				+ ", productPrice=" + productPrice + ", file=" + file + "]";
 	}
+
+	
+
 
 }

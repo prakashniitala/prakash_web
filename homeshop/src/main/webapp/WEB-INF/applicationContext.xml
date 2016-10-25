@@ -42,11 +42,15 @@ http://www.springframework.org/schema/tx/spring-tx.xsd">
 	</bean>
 
 
-	<tx:annotation-driven />
-	<!-- dto related beans -->
-	<bean id="productDAO" class="com.homeshop.dao.ProductDAOImpl" />
+	<tx:annotation-driven/>
 
+	
+<bean id="UsersDAO" class="com.homeshop.dao.UserDAOImpl" />
+<bean id="productDAO" class="com.homeshop.dao.ProductDAOImpl" />
+<bean id="CartDao" class="com.homeshop.dao.CartDaoImpl" />
 
+<bean id="CartItemDao" class="com.homeshop.dao.CartItemDaoImpl" />
+<bean id="CustomerOrderDao" class="com.homeshop.dao.CustomerOrderDaoImpl"/>
 </beans>
 
 

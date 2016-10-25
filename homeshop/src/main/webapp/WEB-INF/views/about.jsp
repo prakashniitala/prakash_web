@@ -7,6 +7,23 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>kcjdlvjk</h1>
+<%@include file="Header.jsp" %>
+<div class="container-wrapper">
+    <div class="container">
+
+        <div class="page-header">
+        <br>
+        <br>
+            <h1>About Us</h1>
+            <p>We are a humble team who are passionate about helping our customers to get the best experience on all product.
+            We are determined to provide the best products and services.</p>
+            <p>BEST OFFER IN MY SITE</p>
+        </div>
+
+        <img src="<c:url value="/resources/image/showroom.jpg" />" alt="showroom" >
+
+</div>
+</div>
+<%@ include file="foot.jsp" %>
 </body>
 </html>

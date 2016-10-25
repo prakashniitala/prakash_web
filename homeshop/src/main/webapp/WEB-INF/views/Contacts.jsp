@@ -6,17 +6,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
   
       <link rel="stylesheet" type="text/css" href="resource/css/slider.css">
-<script src="resource/js/slider.js"></script>
-
+<!-- <script src="resource/js/slider.js"></script>
+ -->
 <jsp:include page="Linking.jsp"></jsp:include>
 </head>
 <body>
-<jsp:include page="Header.jsp"></jsp:include>
+<%@include file="Header.jsp" %>
 <br>
 <br>
 <br>
 <div class="container">
-<img src="resources/image/download.jpg" class="img-thumbnail" alt="CONTACTS" width="1344" height="236">
+<!-- <img src="resources/image/download.jpg" class="img-thumbnail" alt="CONTACTS" width="1344" height="236"> -->
 </div>
 <div class="container">
 
@@ -24,7 +24,7 @@
   <p class="text-center"><em>We love our fans!</em></p>
   <div class="row test">
     <div class="col-md-4">
-       <img src="resources/image/contactus.png" class="img-thumbnail" alt="CONTACTS" width="304" height="236">
+       <img src="resources/image/contactus.png" class="img-thumbnail" alt="CONTACTS" width="304" height="136">
     </div>
     <div class="col-md-8">
       <div class="row">
@@ -52,6 +52,6 @@
     </div>
   </div>
 </div>
-s
+<%@include file="foot.jsp" %>
 </body>
 </html>

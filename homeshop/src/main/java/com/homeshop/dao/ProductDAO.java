@@ -13,4 +13,5 @@ public interface ProductDAO {
 	public Product getProductById(int productId);
 	public Product getProductByPrice(int productPrice);
 	public Product getProductByBand(int productPrice);
+	public List<Product> getProductByCategory(String Category);
 }

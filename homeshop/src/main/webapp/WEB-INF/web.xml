@@ -4,6 +4,17 @@
 	version="3.1">
 
 
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+
+
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/applicationContext.xml /WEB-INF/applicationSecurity.xml</param-value>
+	</context-param>
+
+	<display-name>Archetype Created Web Application</display-name>
 
 
 	<servlet>
@@ -14,21 +25,6 @@
 		<servlet-name>spring-dispatcher</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
-
-
-<listener>
-	<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-</listener>
-
-	<display-name>Archetype Created Web Application</display-name>
-	
-	<context-param>
-		<param-name>contextConfigLocation</param-name>
-		<param-value>
-            /WEB-INF/spring-security.xml,
-            /WEB-INF/applicationContext.xml
-        </param-value>
-	</context-param>
 
 
 	<!-- Spring Security Filter -->

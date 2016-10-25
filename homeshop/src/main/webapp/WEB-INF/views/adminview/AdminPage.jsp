@@ -1,11 +1,29 @@
+<html>
+<head>
+
+<script>
+function display_alert()
+{
+alert("	DELETE Product");
+}
+function Savedata()
+{
+alert("SAVE Product");
+}
+
+
+</script>
+</head>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <c:set var="cp" value="${pageContext.request.contextPath}" />
 
+<body>
+<%@include file="../Header.jsp"%>
 
-<jsp:include page="../Header.jsp" />
+
 <br>
 <br>
 <br>
@@ -14,59 +32,78 @@
 	<div class="row">
 		<div class="col-sm-2"></div>
 		<div class="col-sm-8">
-		<article role="login">
-			<form:form method="POST" action="${cp}/admin/insert" class="form-horizontal"
-				modelAttribute="product" enctype="multipart/form-data">
-				
-	
+			<article role="login">
+				<form:form method="POST" action="${cp}/admin/insert"
+					class="form-horizontal" modelAttribute="product"
+					enctype="multipart/form-data">
 
+
+                    <div style="display:none">
 					<c:if test="${!empty product}">
 						<tr>
 							<td><form:label path="productId">
 									<spring:message text="Product Id" />
 								</form:label></td>
-							<td><form:input path="productId" readonly="true" class="form-control"
-									disabled="true" /> <form:hidden path="productId" /> <!-- <span
+							<td><form:input path="productId" readonly="true"
+									class="form-control" disabled="true" /> <form:hidden
+									path="productId" /> <!-- <span
 								class="glyphicon glyphicon-lock "></span> --></td>
 						</tr>
 					</c:if>
 
+                      </div>
 
-
-     <div class="form-group">
-						<%-- <td><form:label path="productName">Product Name</form:label></td> --%>
-						<form:input path="productName" class="form-control" placeholder="Product Name" required="required"/>
-						<span><form:errors path="productName" cssclass="error"/></span>
-</div>
-<div class="form-group" >			
-						<%-- <td><form:label path="productBrand">Product Brand</form:label></td> --%>
-						<form:input path="productBrand" class="form-control" placeholder="Product Brand" required="required"/>
-						<Span>
-						<form:errors path="productBrand" cssclass="error"/></Span>
-</div>
-					
-					<%-- 	<td><form:label path="productCategory">Product Category</form:label></td> --%>
 					<div class="form-group">
-						<form:input path="productQuantity" class="form-control" placeholder="Product Quantity" required="required"/>
-			<span>		<form:errors path="productQuantity" cssclass="error"/></span>
+						<%-- <td><form:label path="productName">Product Name</form:label></td> --%>
+						<form:input path="productName" class="form-control"
+							placeholder="Product Name" required="required" />
+						<span><form:errors path="productName" cssclass="error" /></span>
 					</div>
-					
-					<div class="form-group">			
+					<div class="form-group">
 						<%-- <td><form:label path="productBrand">Product Brand</form:label></td> --%>
-						<form:input path="productPrice" class="form-control" placeholder="Product Price" required="required"/>
+						<form:input path="productBrand" class="form-control"
+							placeholder="Product Brand" required="required" />
+						<Span> <form:errors path="productBrand" cssclass="error" /></Span>
 					</div>
-					
-					
-	 				
+					<div class="form-group">
+						<tr>
+							<td><form:label path="productCategory">Product Category</form:label></td>
+						</tr>
+						<%-- <tr>
+					<td><form:input path="productCategory"></form:input></td>
+					</tr> --%>
+						<tr>
+							<form:select class="form-control"  path="productCategory">
+								<form:option value="NONE" label="--- Select ---" />
+								<form:options items="${data.cataList}" />
+							</form:select>
+						</tr>
+
+					</div>
+					<div class="form-group">
+						<form:input path="productQuantity" class="form-control"
+							placeholder="Product Quantity" required="required" />
+						<span> <form:errors path="productQuantity" cssclass="error" /></span>
+					</div>
+
+					<div class="form-group">
+						<%-- <td><form:label path="productBrand">Product Brand</form:label></td> --%>
+						<form:input path="productPrice" class="form-control"
+							placeholder="Product Price" required="required" />
+					</div>
+
+
+
 					<div class="form-group">
 						<form:label path="file">
-								<spring:message text="Choose Image" />
-							</form:label></td>
-						<form:input path="file" type="file" class="form-control" placeholder="Select File" required="required"/>										
-</div>
-					
-					<input type="submit"
-									class="btn btn-primary btn-block"  value="save" />
+							<spring:message text="Choose Image" />
+						</form:label>
+						</td>
+						<form:input path="file" type="file" class="form-control"
+							placeholder="Select File" required="required" />
+					</div>
+
+					<input type="submit" class="btn btn-primary btn-block" value="save" onclick="Savedata()"/>
 					<%-- 	 <c:if test="${!empty prdouct.productName}">
 								<input type="submit"
 									class="btn btn-success btn-block"  value="Update" />
@@ -77,8 +114,8 @@
 							</c:if> --%>
 
 
-			</form:form>
-			
+				</form:form>
+
 			</article>
 		</div>
 		<!-- col end -->
@@ -102,39 +139,44 @@
 							<th>Product Name</th>
 							<th>Product Brand</th>
 							<th>Product Category</th>
-								<th>Product Price</th>
+							<th> Product Quantity</th>
+								<th>Product Price </th>
 							<th>Edit Product</th>
 							<th>Delete Product</th>
 						</tr>
 					</thead>
 					<tbody>
-					<!-- loop to print data from object (productData) which is coming thorough  Controller -->
+						<!-- loop to print data from object (productData) which is coming thorough  Controller -->
 						<c:forEach items="${productData}" var="data">
 
 							<tr>
-							<!-- we are getting image from server local storage and rest data from H2 DataBase -->
+								<!-- we are getting image from server local storage and rest data from H2 DataBase -->
 								<td><img alt=""
-									src="${cp}/resources/images/productimages/${data.productId}.jpg"
+									src="${cp}/resources/image/productimages/${data.productId}.jpg"
 									height="100ppx" width="100px" /></td>
 								<td class="active">${data.productId}</td>
 								<td align="left">${data.productName}</td>
 								<td>${data.productBrand}</td>
+								<td>${data.productCategory}</td>
 								<td>${data.productQuantity}</td>
 								<td>${data.productPrice}</td>
 								<td>
-								<!-- button to edit product  -->
-								<a
-									href="<c:url value='/admin/edit/${data.productId}' />"><!-- <span
+									<!-- button to edit product  --> <a
+									href="<c:url value='/admin/edit/${data.productId}' />" class="glyphicon glyphicon-pencil btn btn-primary">
+										<!-- <span
 										class="glyphicon glyphicon-pencil btn btn-primary"></span> -->
-										
-										EDIT</a></td>
+
+										EDIT
+								</a>
+								</td>
 								<td>
-								<!-- button to delete product  -->
-								<a
-									href="<c:url value='/admin/remove/${data.productId}'/>"> <!-- <span
+									<!-- button to delete product  --> <a
+									href="<c:url value='/admin/remove/${data.productId}'/>" 	class="glyphicon glyphicon-trash btn btn-danger" onclick="display_alert()"> <!-- <span
 										class="glyphicon glyphicon-trash btn btn-danger"></span> -->
-										
-										DELETE</a></td>
+
+										DELETE
+								</a>
+								</td>
 
 							</tr>
 						</c:forEach>
@@ -147,4 +189,5 @@
 	</div>
 </div>
 
-
+</body>
+</html>
