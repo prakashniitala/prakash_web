@@ -14,12 +14,12 @@
 		<intercept-url pattern="/checkout" access="hasRole('ROLE_USER')" />
 		<intercept-url pattern="/user/**" access="hasRole('ROLE_USER')" />
 		<intercept-url pattern="/**" access="permitAll" />
-				<form-login login-page="/login" default-target-url="/login"
-			username-parameter="user" password-parameter="password"
+				<form-login login-page="/login" default-target-url="/"
+			username-parameter="email" password-parameter="password"
 			authentication-failure-url="/login" 
 			/>
 		<logout logout-success-url="/"/>
-		<csrf disabled="false" />
+		<csrf disabled="true" />
 
 	</http>
 

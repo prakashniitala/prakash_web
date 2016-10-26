@@ -17,6 +17,12 @@ public class UserDAOImpl implements UserDAO{
 	
 	@Override
 	public void insertUser(User user) {
+		
+		Cart cart = new Cart();
+		cart.setGrandTotal(0);
+		cart.setUser(user);
+		user.setCart(cart);
+		
 		session.getCurrentSession().persist(user);
 		
 	}

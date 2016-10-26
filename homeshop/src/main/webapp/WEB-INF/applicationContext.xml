@@ -17,7 +17,7 @@ http://www.springframework.org/schema/tx/spring-tx.xsd">
 		<property name="driverClassName" value="org.h2.Driver" />
 		<property name="url" value="jdbc:h2:tcp://localhost/~/homeshop" />
 		<property name="username" value="sa" />
-		<property name="password" value="1234" />
+		<property name="password" value="" />
 	</bean>
 
 	<!-- ref is used to refer to a bean by its id -->
@@ -28,7 +28,7 @@ http://www.springframework.org/schema/tx/spring-tx.xsd">
 		<property name="packagesToScan" value="com.homeshop.model" />
 		<property name="hibernateProperties">
 			<props>
-				<prop key="hibernate.dialect">org.hibernat.dialect.H2Dialect</prop>
+				<prop key="hibernate.dialect">org.hibernate.dialect.H2Dialect</prop>
 				<prop key="hibernate.show_sql">true</prop>
 				<prop key="hibernate.format_sql">true</prop>
 				<prop key="hibernate.hbm2ddl.auto">update</prop>
@@ -43,8 +43,27 @@ http://www.springframework.org/schema/tx/spring-tx.xsd">
 
 
 	<tx:annotation-driven/>
-
-	
+ <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+        <property name="host" value="smtp.gmail.com" />
+        <property name="port" value="587" />
+        <property name="username" value="prakashmishra.niit@gmail.com" />
+        <property name="password" value="prakash.niit" />
+        <property name="javaMailProperties">
+            <props>
+                <prop key="mail.transport.protocol">smtp</prop>
+                <prop key="mail.smtp.auth">true</prop>
+                <prop key="mail.smtp.starttls.enable">true</prop>
+            </props>
+        </property>
+    </bean>
+<bean
+        class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+        <property name="exceptionMappings">
+            <props>
+                <prop key="java.lang.Exception">Error</prop>
+            </props>
+        </property>
+    </bean>   
 <bean id="UsersDAO" class="com.homeshop.dao.UserDAOImpl" />
 <bean id="productDAO" class="com.homeshop.dao.ProductDAOImpl" />
 <bean id="CartDao" class="com.homeshop.dao.CartDaoImpl" />
@@ -52,5 +71,3 @@ http://www.springframework.org/schema/tx/spring-tx.xsd">
 <bean id="CartItemDao" class="com.homeshop.dao.CartItemDaoImpl" />
 <bean id="CustomerOrderDao" class="com.homeshop.dao.CustomerOrderDaoImpl"/>
 </beans>
-
-

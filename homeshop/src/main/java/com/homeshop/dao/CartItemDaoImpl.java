@@ -5,10 +5,13 @@ import java.util.List;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.homeshop.model.Cart;
 import com.homeshop.model.CartItem;
 
+
+@Transactional
 public class CartItemDaoImpl implements CartItemDao{
 	@Autowired
 	private SessionFactory session;

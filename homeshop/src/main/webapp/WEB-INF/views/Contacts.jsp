@@ -29,18 +29,20 @@
     <div class="col-md-8">
       <div class="row">
         <div class="col-sm-6 form-group">
-          <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+        <form method="post" action="sendEmail.do">
+          <input class="form-control" id="name" name="recipient" placeholder="TO" type="text" required>
         </div>
         <div class="col-sm-6 form-group">
-          <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+          <input class="form-control" id="email" name="subject" placeholder="subject" type="text" required>
         </div>
       </div>
-      <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea>
+      <textarea class="form-control" id="comments" name="message" placeholder="Comment" rows="5"></textarea>
       <div class="row">
        <div class="col-md-12 form-group">
        </div>
         <div class="col-md-12 form-group">
           <button class="btn pull-right" type="submit">Send</button>
+          </form>
         </div>
       </div> 
       <div class="col-md-4">

@@ -20,7 +20,14 @@
         <li class="active"><a href="<c:url value="/" />">HOME</a></li>
        <!--  <li class="active"><a href="checkout">ADD</a></li>
  -->          <li><a href="<c:url value="/Viewall"/>"> ALL PRODUCT</a></li>
-                                <li><a href="<c:url value="/customer/cart/1" />">Cart</a></li>
+ 
+ 			  <sec:authorize access="hasRole('ROLE_USER')">
+ 			  	<li><a href="<c:url value="/customer/cart/" />">View Cart</a></li>
+ 			  </sec:authorize>
+ 			  <sec:authorize access="isAnonymous()">
+ 			  	<li><a href="<c:url value="/login" />">View Cart</a></li>
+ 			  </sec:authorize>
+                                
                
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Electronics Accessories<span class="caret"></span></a>
@@ -39,7 +46,7 @@
             <li><a href="<c:url value="/displaycatgory/Baby"/>">Baby & Kid</a></li>
           </ul>
         </li>
-       <%--   <li class="dropdown">
+          <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Home & Furniture<span class="caret"></span></a>
           <ul class="dropdown-menu">
           	  <li><a href="<c:url value="/displaycatgory/Kitchen"/>">Kitchen</a></li>
@@ -54,7 +61,7 @@
             <li><a href="<c:url value="/displaycatgory/Stationery"/>">Stationery</a></li>
             <li><a href="<c:url value="/displaycatgory/Game"/>">Game</a></li>
           </ul>
-        </li> --%>
+        </li> 
         <li><a href="<c:url value="/about"/>" >ABOUT</a></li>
         <li><a href="Contacts">CONTACTS</a></li>
       </ul>

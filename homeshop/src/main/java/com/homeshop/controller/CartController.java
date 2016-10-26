@@ -21,11 +21,11 @@ public class CartController {
  @Autowired
  private UserDAO user;
 
- @RequestMapping("/{cartId}")
- public String getCart(@PathVariable (value = "cartId") int cartId, Principal principal, Model model){
+ @RequestMapping("/")
+ public String getCart(Principal principal, Model model){
     User customer = user.getCustomerByUsername(principal.getName());
 	 model.addAttribute("customer", customer);
-	 model.addAttribute("cartId", cartId);
+	 model.addAttribute("cartId", customer.getCart().getCartId());
      return "cart";
  }
 
