@@ -36,10 +36,16 @@ jQuery(document).ready(function($) {
 
 </head>
 <body>
-	
+
 	<%@include file="Header.jsp" %>
 	<br>
 	<br>
+	<c:if test="${thanks}">
+<div>
+<p>thanks</p>
+
+</div>
+</c:if>
 	 <div class="container-fluid">
 <div class ="row">
 <div class="col-lg-12">

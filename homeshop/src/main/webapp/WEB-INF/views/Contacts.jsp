@@ -29,7 +29,7 @@
     <div class="col-md-8">
       <div class="row">
         <div class="col-sm-6 form-group">
-        <form method="post" action="sendEmail.do">
+        <form method="post" action="sendEmail">
           <input class="form-control" id="name" name="recipient" placeholder="TO" type="text" required>
         </div>
         <div class="col-sm-6 form-group">

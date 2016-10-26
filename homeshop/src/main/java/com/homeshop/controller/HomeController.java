@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -25,9 +26,13 @@ public class HomeController {
 		return productDAO.getAllProduct();
 
 	}
-	@RequestMapping("/")
-public ModelAndView helloWorld(){
-	ModelAndView model=new ModelAndView("index");
+	@RequestMapping(value = {"/","/index"})
+public ModelAndView helloWorld(@RequestParam (name = "thanks", required = false)String str){
+		ModelAndView model=new ModelAndView("index");
+		if(str!=null) {
+			model.addObject("thanks", "Thanks for your valuable feedback!");
+		}
+		
 
 	return model;
 }

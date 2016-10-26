@@ -37,6 +37,6 @@ public class SendEmailController {
         mailSender.send(email);
          
         // forwards to the view named "Result"
-        return "/";
+        return "redirect:/index?thanks";
     }
 }
