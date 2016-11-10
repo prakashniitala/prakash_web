@@ -21,21 +21,23 @@
                     <div class="well col-xs-10 col-sm-10 col-md-6 col-xs-offset-1 col-sm-offset-1 col-md-offset-3">
 
                        <div class="txt-center">
-                            <h1>Receipt</h1>
+                            <h1>Payment</h1>
                        </div>
                         <div class="row">
                             <div class="col-xs-6 col-sm-6 col-md-6">
                                 <address>
                                     <strong>Shipping Address</strong><br/>
-                                    ${order.cart.customer.shippingAddress.streetName}
+                                    ${order.cart.user.shippingAddress.streetName}
                                 <br/>
-                                    ${order.cart.customer.shippingAddress.city}, ${order.cart.customer.shippingAddress.state}
+                                    ${order.cart.user.shippingAddress.city}, ${order.cart.customer.shippingAddress.state}
                                 <br/>
-                                     ${order.cart.customer.shippingAddress.country}, ${order.cart.customer.shippingAddress.zipCode}
+                                     ${order.cart.user.shippingAddress.country}, ${order.cart.customer.shippingAddress.zipCode}
                                 </address>
                             </div>
                             <div class="col-xs-6 col-sm-6 col-md-6 text-right">
-                                <p>Shipping Date: <fmt:formatDate type="date" value="${now}" /></p>
+                                <p>Shipping Date: <fmt:formatDate type="date" value="${now}" />
+                                <fmt:formatDate type="time" value="${now}" /></p>
+                                </p>
                             </div>
                         </div>
 
@@ -79,7 +81,7 @@
                                         <h4><strong>Grand Total:</strong></h4>
                                     </td>
                                     <td class="text-center text-danger">
-                                        <h4><strong>$ ${order.cart.grandTotal}</strong></h4>
+                                        <h4><strong>&#x20B9 ${order.cart.grandTotal}</strong></h4>
                                     </td>
                                 </tr>
 

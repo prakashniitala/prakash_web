@@ -31,7 +31,7 @@ public class SendEmailController {
         SimpleMailMessage email = new SimpleMailMessage();
         email.setTo(recipientAddress);
         email.setSubject(subject);
-        email.setText(message);
+        email.setText(message+"HomeShoping.com");
          
         // sends the e-mail
         mailSender.send(email);

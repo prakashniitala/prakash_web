@@ -2,6 +2,7 @@ package com.homeshop.dao;
 
 import java.util.List;
 
+import com.homeshop.model.BillingAddress;
 import com.homeshop.model.User;
 
 public interface UserDAO {
@@ -15,5 +16,6 @@ public interface UserDAO {
    public List<User> getAllCustomers();
 
    User getCustomerByUsername(String username);
+   public String insertBillingAddress(BillingAddress ba);
 
 }

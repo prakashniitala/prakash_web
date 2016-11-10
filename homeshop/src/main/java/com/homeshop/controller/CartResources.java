@@ -98,5 +98,15 @@ public class CartResources {
 //
 //    }
 
-
+    @RequestMapping("/StartFlow")
+	public String pageFlow() {
+		
+		
+		return "redirect:/checkout";
+	}
+    Cart cart;
+	public Cart initFlow(){
+		//System.out.println(product);
+		return cart;
+	}
 } // The End of Class;

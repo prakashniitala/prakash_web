@@ -6,7 +6,7 @@
 <title>
 HOME
 </title>
-<link rel="stylesheet" type="text/css" href="stlye.css">
+<link rel="stylesheet" type="text/css" href="resources/css/stlye.css">
 <script>
 jQuery(document).ready(function($) {
 	 

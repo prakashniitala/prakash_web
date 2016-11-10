@@ -18,9 +18,10 @@ app.controller("cartCtrl", function($scope, $http) {
 				});
 	};
 
-	/*
-	 * $scope.clearCart = function(){ $http.delete('/rest/cart/' +
-	 * $scope.cartId).success($scope.refreshCart()); };
+	
+/*$scope.clearCart = function(){ 
+		
+		$http.delete('/homeshop/customer/rest/cart/'+ $scope.cartId).success($scope.refreshCart()); };
 	 */
 
 	$scope.initCartId = function(cartId) {
@@ -29,7 +30,7 @@ app.controller("cartCtrl", function($scope, $http) {
 	};
 
 	$scope.addToCart = function(productId) {
-		alert(productId);
+		
 		$http.put('/homeshop/customer/rest/cart/add/' + productId).success(
 				function() {
 					alert('Product successfully added to the cart!');

@@ -1,5 +1,4 @@
-<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-<%@ taglib uri="http://java.sun.com/jstl/core" prefix="c"%>
+
 <html>
 <head>
 <style type="text/css">
@@ -44,10 +43,10 @@ var api = $easyzoom.data('easyZoom');
 					<div class="product col-md-3 service-image-left">
                     
 						<center>
-						<div class="easyzoom">
-    <a href="images/zoom.jpg">
+						
+    
 							<img id="item-display" src="${cp}/resources/image/productimages/${product.productId}.jpg" alt="" hight="400"></img>
-							</a>
+						
 							</div>
 						</center>
 					</div>
@@ -61,7 +60,7 @@ var api = $easyzoom.data('easyZoom');
 					<div class="product-desc">${product.productBrand}</div>
 					<div class="product-rating"><i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star-o"></i> </div>
 					<hr>
-					<div class="product-price">$ ${product.productPrice}</div>
+					<div class="product-price"> ${product.productPrice} &#x20B9</div>
 					<div class="product-stock">In Stock</div>
 					<hr>
 					<div class="btn-group cart">
@@ -70,11 +69,15 @@ var api = $easyzoom.data('easyZoom');
 						</button>
 					</div>
 					
-						<button type="button" class="btn btn-danger">
+					<!-- 	<button type="button" class="btn btn-danger">
 							Add to wishlist 
-						</button>
+						</button> -->
 						<br>
 						<br>
+						<td ng-controller="cartCtrl">
+						<button type="button" class="btn  btn-danger" ng-click="addToCart(x.productId)"><span class="glyphicon glyphicon-shopping-cart"></span> ADD TO CART</button>						
+						
+						</td>
                 <button type="button" href="<spring:url value="/Viewall" />" class="btn btn-default">Continue Shopping</button>
 					
 				
@@ -114,6 +117,7 @@ var api = $easyzoom.data('easyZoom');
 		</div>
 	</div>
 </div>
-	
+	<script src="resources/js/product.js?v3"></script>
+<%@include file="foot.jsp"%>
 		</body>
 	</html>

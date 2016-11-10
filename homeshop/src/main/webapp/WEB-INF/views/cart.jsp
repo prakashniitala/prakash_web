@@ -20,8 +20,10 @@
             <div ng-controller = "cartCtrl" ng-init="initCartId('${cartId}')">
 
                 <div>
-                    <a class="btn btn-danger pull-left" ng-click = "clearCart()"><span class="glyphicon glyphicon-remove-sign"></span> Clear Cart</a>
-                    <a href="http://localhost:8099/homeshop/checkout?execution=e16s1" class="btn btn-success pull-right"><span class="glyphicon glyphicon-shopping-cart"></span> Check out</a>
+                    <button class="btn btn-danger pull-left" ng-click = "clearCart()"><span class="glyphicon glyphicon-remove-sign"></span> Clear Cart</button>
+              
+        <%--       <a href="http://localhost:8099/homeshop/checkout?execution=e16s1" class="btn btn-success pull-right"><span class="glyphicon glyphicon-shopping-cart"></span> Check out</a> --%>
+        <%--   <a href="<spring:url value="/order/${cartId}" />" class="btn btn-success pull-right"><span class="glyphicon glyphicon-shopping-cart"></span> Check out</a> --%>
           
                 </div>
 
@@ -50,9 +52,9 @@
                         <th></th>
                     </tr>
                 </table>
-
-
+            
             </div>
         </section>
-
-
+    <form:form>
+<td><input name="_eventId_submit" type="submit" value="Checkout" /> </td>
+</form:form>

@@ -46,7 +46,7 @@
             <li><a href="<c:url value="/displaycatgory/Baby"/>">Baby & Kid</a></li>
           </ul>
         </li>
-          <li class="dropdown">
+         <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Home & Furniture<span class="caret"></span></a>
           <ul class="dropdown-menu">
           	  <li><a href="<c:url value="/displaycatgory/Kitchen"/>">Kitchen</a></li>
@@ -61,7 +61,7 @@
             <li><a href="<c:url value="/displaycatgory/Stationery"/>">Stationery</a></li>
             <li><a href="<c:url value="/displaycatgory/Game"/>">Game</a></li>
           </ul>
-        </li> 
+        </li>  
         <li><a href="<c:url value="/about"/>" >ABOUT</a></li>
         <li><a href="Contacts">CONTACTS</a></li>
       </ul>
@@ -76,6 +76,8 @@
   
   <c:if test="${(isAdmin)  || (isUser)}">
  <%--  <li><a href="<c:url value="/admin/all"/>"><span class="glyphicon glyphicon-user"></span>Admin</a></li> --%>
+   {customer}
+   
    <li><a href="<c:url value="/logout"/>">LogOut</a></li>
   </c:if> 
   
@@ -87,7 +89,7 @@
     <c:otherwise>
 
                     <li>
-                      <a href="<c:url value="/signup"/>">SIGNUP</a>
+                      <a href="<c:url value="/signup"/>"><span class="glyphicon glyphicon-user">SIGNUP</a>
                     </li>
                  
                     <li>

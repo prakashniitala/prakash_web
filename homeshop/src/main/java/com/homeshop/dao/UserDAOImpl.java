@@ -52,6 +52,11 @@ public class UserDAOImpl implements UserDAO{
 		query.setParameter(0, username);
 		return (User)query.getSingleResult();
 	}
+	public String insertBillingAddress(BillingAddress billing) {
+
+		session.getCurrentSession().persist(billing);
+		return "inserted";
+	}
 	
 
 }

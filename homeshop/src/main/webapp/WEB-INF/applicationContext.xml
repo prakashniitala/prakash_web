@@ -64,7 +64,7 @@ http://www.springframework.org/schema/tx/spring-tx.xsd">
             </props>
         </property>
     </bean>   
-<bean id="UsersDAO" class="com.homeshop.dao.UserDAOImpl" />
+<bean id="UserDAO" class="com.homeshop.dao.UserDAOImpl" />
 <bean id="productDAO" class="com.homeshop.dao.ProductDAOImpl" />
 <bean id="CartDao" class="com.homeshop.dao.CartDaoImpl" />
 

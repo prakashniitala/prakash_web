@@ -15,6 +15,6 @@
         </section>
 
         <section class="container">
-            <p><a href="<spring:url value="/product/productList" />" class="btn btn-default">Products</a></p>
+            <p><a href="<spring:url value="/Viewall" />" class="btn btn-default">Products</a></p>
         </section>
 
