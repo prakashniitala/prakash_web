@@ -42,7 +42,7 @@ public class CartResources {
     public @ResponseBody Cart getCartById(@PathVariable(value = "cartId") int cartId){
         return cartdao.getCartById(cartId);
     }
-
+Cart cart;
     @RequestMapping(value = "/add/{productId}", method = RequestMethod.PUT)
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
     public void addItem (@PathVariable(value = "productId") int productId, Principal principal){
@@ -97,5 +97,15 @@ public class CartResources {
 //    public void handleServerErrors (Exception ex){
 //
 //    }
-   
+    @RequestMapping("/StartFlow")
+	public String pageFlow() {
+		
+		
+		return "redirect:/memberShip";
+	}
+	
+	public Cart initFlow(){
+		//System.out.println(product);
+		return cart;
+	}
 } // The End of Class;

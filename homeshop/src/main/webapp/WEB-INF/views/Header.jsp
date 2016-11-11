@@ -22,7 +22,9 @@
  -->          <li><a href="<c:url value="/Viewall"/>"> ALL PRODUCT</a></li>
  
  			  <sec:authorize access="hasRole('ROLE_USER')">
- 			  	<li><a href="<c:url value="/customer/cart/" />">View Cart</a></li>
+ 			  	<%-- <li><a href="<c:url value="/customer/cart/" />">View Cart</a></li> --%>
+ 			  	<li><a href="<c:url value="/customer/rest/cart/StartFlow" />"><span
+							class="glyphicon glyphicon-shopping-cart"></span>Cart</a></li>
  			  </sec:authorize>
  			  <sec:authorize access="isAnonymous()">
  			  	<li><a href="<c:url value="/login" />">View Cart</a></li>

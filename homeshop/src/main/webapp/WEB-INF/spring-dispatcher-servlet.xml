@@ -19,6 +19,29 @@
 
 	<context:component-scan base-package="com.homeshop" />
 
+
+	<!-- WebFlow Configuration -->
+	<webflow:flow-executor id="flowExecutor" />
+
+	<webflow:flow-registry id="flowRegistry"
+		flow-builder-services="flowBuilderServices" base-path="/WEB-INF">
+		<!-- here the id is mapped to invoke this flow -->
+		<webflow:flow-location id="memberShip" path="/memberShipFlow.xml" />
+	</webflow:flow-registry>
+
+	<webflow:flow-builder-services id="flowBuilderServices"
+		view-factory-creator="viewFactoryCreator" />
+
+	<bean id="viewFactoryCreator"
+		class="org.springframework.webflow.mvc.builder.MvcViewFactoryCreator">
+		<property name="viewResolvers">
+			<list>
+				<ref bean="viewResolver" />
+			</list>
+		</property>
+		
+	</bean>
+
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix">
@@ -42,11 +65,11 @@
 	
 	<mvc:annotation-driven />
 
-<webflow:flow-executor id="flowExecutor" flow-registry="flowRegistry" />
+<!-- <webflow:flow-executor id="flowExecutor" flow-registry="flowRegistry" />
  
 	<webflow:flow-registry id="flowRegistry"
 		flow-builder-services="flowBuilderServices" base-path="/WEB-INF">
-		<!-- here the id is mapped to invoke this flow -->
+		here the id is mapped to invoke this flow
 		 <webflow:flow-location-pattern value="**/*-checkout-flow.xml" />
 		<webflow:flow-location id="checkout" path="/checkout-flow.xml"  />
 	</webflow:flow-registry>
@@ -62,7 +85,7 @@
 			</list>
 		</property>
 	</bean>
- 
+  -->
 	
 	<bean class="org.springframework.webflow.mvc.servlet.FlowHandlerAdapter">
 		<property name="flowExecutor" ref="flowExecutor" />
