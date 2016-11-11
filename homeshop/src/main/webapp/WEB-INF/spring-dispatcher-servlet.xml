@@ -1,5 +1,4 @@
 
-
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -14,8 +13,6 @@
         http://www.springframework.org/schema/context/spring-context-3.2.xsd
          http://www.springframework.org/schema/webflow-config
         http://www.springframework.org/schema/webflow-config/spring-webflow-config-2.0.xsd">
- 
-      
 
 
 	<!--it's say that scan all controller and use it -->
@@ -47,36 +44,16 @@
 
 <webflow:flow-executor id="flowExecutor" />
  
-	<!-- <webflow:flow-registry id="flowRegistry" flow-builder-services="flowBuilderServices" base-path="/WEB-INF">
-		here the id is mapped to invoke this flow
-	 <webflow:flow-location-pattern value="**/*-checkout-flow.xml" />
+	<webflow:flow-registry id="flowRegistry"
+		flow-builder-services="flowBuilderServices" base-path="/WEB-INF">
+		<!-- here the id is mapped to invoke this flow -->
+		 <webflow:flow-location-pattern value="**/*-checkout-flow.xml" />
 		<webflow:flow-location id="checkout" path="checkout-flow.xml" />
 	</webflow:flow-registry>
  
 	<webflow:flow-builder-services id="flowBuilderServices"
 		view-factory-creator="viewFactoryCreator" />
  
-	<bean id="viewFactorysCreator"
-		class="org.springframework.webflow.mvc.builder.MvcViewFactoryCreator">
-		<property name="viewResolvers">
-			<list>
-				<ref bean="viewResolver" />
-			</list>
-		</property>
-	</bean> -->
-	
-	<!-- WebFlow Configuration -->
-	<webflow:flow-executor id="flowExecutor" />
-
-	<webflow:flow-registry id="flowRegistry"
-		flow-builder-services="flowBuilderServices" base-path="/WEB-INF">
-		<!-- here the id is mapped to invoke this flow -->
-		<webflow:flow-location id="memberShip" path="/checkout-flow.xml" />
-	</webflow:flow-registry>
-
-	<webflow:flow-builder-services id="flowBuilderServices"
-		view-factory-creator="viewFactoryCreator" />
-
 	<bean id="viewFactoryCreator"
 		class="org.springframework.webflow.mvc.builder.MvcViewFactoryCreator">
 		<property name="viewResolvers">
@@ -84,9 +61,7 @@
 				<ref bean="viewResolver" />
 			</list>
 		</property>
-		
 	</bean>
-	
  
 	
 	<bean class="org.springframework.webflow.mvc.servlet.FlowHandlerAdapter">
