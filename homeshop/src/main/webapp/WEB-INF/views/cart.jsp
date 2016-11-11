@@ -22,10 +22,10 @@
                 <div>
                     <button class="btn btn-danger pull-left" ng-click = "clearCart()"><span class="glyphicon glyphicon-remove-sign"></span> Clear Cart</button>
               
-             <a href="http://localhost:8099/homeshop/checkout?execution=e16s1" class="btn btn-success pull-right"><span class="glyphicon glyphicon-shopping-cart"></span> Check out</a> 
-        <%--   <a href="<spring:url value="/order/${cartId}" />" class="btn btn-success pull-right"><span class="glyphicon glyphicon-shopping-cart"></span> Check out</a> --%>
+            <!--  <a href="http://localhost:8099/homeshop/checkout?execution=e16s1" class="btn btn-success pull-right"><span class="glyphicon glyphicon-shopping-cart"></span> Check out</a>  -->
+        <a href="<spring:url value="/order/${cartId}" />" class="btn btn-success pull-right"><span class="glyphicon glyphicon-shopping-cart"></span> Check out</a> 
           
-                </div>
+                  </div>
 
                 <br/><br/><br/>
 
@@ -55,9 +55,7 @@
 
 
 <td>
-  <form:form class="form-signin" modelAttribute="billingAddress">
-<input name="_eventId_submit" type="submit" value="Checkout" /> </td>
-</form:form>
+
             </div>
         </section>
     
